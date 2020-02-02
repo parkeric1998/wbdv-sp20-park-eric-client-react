@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CourseManagerComponent from "./components/CourseManagerComponent";
+import CourseManagerContainer from "./containers/CourseManagerContainer";
 
 const App = () =>
-    <CourseManagerComponent/>
+    <CourseManagerContainer/>
 
 
 export default App;
