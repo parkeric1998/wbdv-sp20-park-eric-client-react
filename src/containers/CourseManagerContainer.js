@@ -2,6 +2,7 @@ import React from "react";
 import CourseTableComponent from "../components/CourseTableComponent";
 import CourseGridComponent from "../components/CourseGridComponent";
 import CourseEditorComponent from "../components/CourseEditor/CourseEditorComponent";
+import {findAllCourses, deleteCourse, createCourse} from "../services/CourseService";
 
 class CourseManagerContainer extends React.Component {
     state = {
@@ -15,6 +16,13 @@ class CourseManagerContainer extends React.Component {
             {_id: '456', title: 'Course D'},
             {_id: '567', title: 'Course E'}
         ]
+    }
+    componentDidMount = async () =>{
+        const courses = await findAllCourses()
+            this.setState({
+                courses: courses
+            })
+
     }
 
     toggle = () =>
@@ -30,18 +38,24 @@ class CourseManagerContainer extends React.Component {
             }
         })
     deleteCourse = (course) =>
-        this.setState(prevState => {
-            return({
-                courses: prevState
-                    .courses
-                    .filter(function(crs){
-                        return crs._id !== course._id
+        deleteCourse(course._id)
+            .then(status => {
+                this.setState(prevState => {
+                    return ({
+                        courses: prevState
+                            .courses
+                            .filter(function(crs) {
+                                return crs._id !== course._id
+                            })
                     })
+                })
             })
-        })
+
 
     addCourse = () =>
-        this.setState(prevState =>{
+        createCourse({
+            title: this.state.newCourseTitle
+        }).then(actualCourse => this.setState(prevState =>{
             return({
                 courses:[
                     ...prevState.courses,
@@ -51,7 +65,8 @@ class CourseManagerContainer extends React.Component {
                     }
                 ]
             })
-        })
+        }))
+
 
     showEditor =() =>
         this.setState({

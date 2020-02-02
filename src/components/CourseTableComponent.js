@@ -1,4 +1,6 @@
 import React from "react";
+import CourseRow from "./CourseRow";
+import {deleteCourse} from "../services/CourseService";
 
 const CourseTableComponent = ({courses, deleteCourse, showEditor}) =>
 <div>
@@ -7,12 +9,10 @@ const CourseTableComponent = ({courses, deleteCourse, showEditor}) =>
         {
             courses.map(function(course,index){
                 return (
-                    <li key ={index}>
-                        <a onClick ={showEditor} href ="#">
-                        {course.title}
-                        </a>
-                        <button onClick={() => deleteCourse(course)}>Delete</button>
-                    </li>
+                    <CourseRow
+                        course ={course}
+                        showEditor = {showEditor}
+                        deleteCourse = {deleteCourse}/>
                 )
             })
         }
