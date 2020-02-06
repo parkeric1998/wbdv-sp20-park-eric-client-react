@@ -3,10 +3,12 @@ import ModuleListComponent from "./ModuleListComponent";
 import LessonTabs from "./LessonTabs";
 import TopicPills from "./TopicPills";
 import WidgetList from "./WidgetList";
+import './CourseEditorComponent.css'
 
 const CourseEditorComponent = ({hideEditor}) =>
     <div>
-        <div class="row">
+        <div class="row"
+             id="wbdev-title">
             <div class="col-1">
                 <i className="fa-2x fa fa-times"
                    onClick={hideEditor}/>
@@ -14,7 +16,7 @@ const CourseEditorComponent = ({hideEditor}) =>
             <div class="col-2">
                 <h3>Course Editor</h3>
             </div>
-            <div class ="col-8">
+            <div class="col-8">
                 <LessonTabs
                     lessons={[
                         {id: "1", title: "Build"},
@@ -26,12 +28,15 @@ const CourseEditorComponent = ({hideEditor}) =>
                     ]}
                 />
             </div>
+            <div class = "col-1">
+                <i class ="fa-3x fa fa-plus"></i>
+            </div>
 
         </div>
 
 
-        <div className="row">
-            <div className="col-4">
+        <div className="row row-widget">
+            <div className="col-4 box">
                 <ModuleListComponent
                     modules={[
                         {id: "1", title: "Module 1 - jQuery"},

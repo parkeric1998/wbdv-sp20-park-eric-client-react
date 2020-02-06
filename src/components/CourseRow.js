@@ -1,9 +1,14 @@
 import React from "react";
+import './CourseRow.css';
 
 class CourseRow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {editing: false, newTitle: ""}
+        this.state = {
+            editing: false,
+            newTitle: "",
+            bgColor: "white"
+        }
     }
 
     render() {
@@ -11,11 +16,14 @@ class CourseRow extends React.Component {
 
         const wrapperFunction = () => {
             this.props.editCourse(this.props.course, newCourse);
-            this.setState({editing: false})
+            this.setState({editing: false, bgColor: 'white'})
         }
 
         return (
-            <div class="row">
+            <div class="row course-row"
+                 style={{backgroundColor: this.state.bgColor}}
+            >
+
                 <i className="fa fa-file wbdv-row wbdv-icon"></i>
                 <div class="col-5">
                     {
@@ -50,14 +58,15 @@ class CourseRow extends React.Component {
                     < i className="fa-2x fa fa-pencil wbdv-edit"
                         onClick={() => {
                             this.setState({
-                                editing: true
+                                editing: true,
+                                bgColor: 'blue'
                             })
                         }}/>
                 }
 
                 {
                     this.state.editing &&
-                    <i className="fa-2x fa fa-plus wbdv-create"
+                    <i className="fa-2x fa fa-check wbdv-create"
                        onClick={wrapperFunction}>
                     </i>
                 }

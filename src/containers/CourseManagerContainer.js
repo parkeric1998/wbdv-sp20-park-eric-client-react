@@ -4,12 +4,13 @@ import CourseGridComponent from "../components/CourseGridComponent";
 import CourseEditorComponent from "../components/CourseEditor/CourseEditorComponent";
 import {findAllCourses, deleteCourse, createCourse, findCourseById, updateCourse} from "../services/CourseService";
 import CourseManagerHeader from "../components/CourseManagerHeader";
+import './CourseManagerContainer.css';
 
 class CourseManagerContainer extends React.Component {
     state = {
         layout: 'table',
         showEditor: false,
-        newCourseTitle: 'Whatever',
+        newCourseTitle: 'New Course',
         courses: [
             {_id: '123', title: 'Course A', date: 'test123'},
             {_id: '234', title: 'Course B', date: 'tester098'}
@@ -96,7 +97,7 @@ class CourseManagerContainer extends React.Component {
                 {/*<CourseManagerHeader/>*/}
                 {
                     !this.state.showEditor &&
-                    <h2 id ="wbdev-title">
+                    <h2 id="wbdv-course-header">
                         <div className="row">
                             <div className="col-1">
                                 <i className="wbdv-field wbdv-hamburger fa fa-bars"
@@ -140,17 +141,18 @@ class CourseManagerContainer extends React.Component {
                         !this.state.showEditor &&
                         <div>
 
-                            <h4 className="d-none d-lg-block offset-1">
+                            <h4 className="d-none d-lg-block "
+                                id="wbdv-title-row">
                                 <div className="row">
                                     {
                                         this.state.layout === 'table' &&
-                                        <a class="col-4 wbdv-header wbdv-title">
+                                        <a class="col-4 wbdv-header wbdv-title offset-1">
                                             Title
                                         </a>
                                     }
                                     {
                                         this.state.layout === 'table' &&
-                                        <a className="col-3">
+                                        <a className="col-2">
                                             Owned by
                                         </a>
                                     }
@@ -182,6 +184,9 @@ class CourseManagerContainer extends React.Component {
                                 this.state.layout === 'grid' &&
                                 <CourseGridComponent
                                     courses={this.state.courses}
+                                    editCourse={this.editCourse}
+                                    showEditor={this.showEditor}
+                                    deleteCourse={this.deleteCourse}
                                 />
                             }
                         </div>

@@ -1,0 +1,20 @@
+#wbdev-title{
+    color:white;
+    background-color: #464B4F;
+    margin:0px;
+}
+
+.box{
+    border-right:1px solid darkgray;
+    border-bottom:1px solid darkgray;
+    background-color:#363B3E;
+}
+
+.wbdv-module-item{
+
+    color:white;
+}
+
+.row-widget{
+    border-bottom:1px solid darkgray;
+}

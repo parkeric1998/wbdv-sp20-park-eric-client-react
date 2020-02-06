@@ -7,10 +7,12 @@ const LessonTabs = ({lessons}) =>
     //     <li> Lesson 3</li>
     // </ul>
 
-    <div class= "row">
+    <div class="row">
         {lessons.map(lesson =>
             <div className="col-2">
-                {lesson.title}
+                <h3>
+                    {lesson.title}
+                </h3>
             </div>
         )}
     </div>
