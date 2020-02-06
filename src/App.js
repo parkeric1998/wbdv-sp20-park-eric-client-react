@@ -2,9 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CourseManagerContainer from "./containers/CourseManagerContainer";
+import CourseManagerHeader from "./components/CourseManagerHeader";
 
-const App = () =>
-    <CourseManagerContainer/>
+function App() {
+    return(
+        <div>
+
+            <CourseManagerContainer/>
+        </div>
+    )
+}
 
 
 export default App;

@@ -3,9 +3,12 @@ import React from "react";
 const ModuleListComponent = ({modules}) =>
     <ul>
         {modules.map(module =>
-            <li key={module._id}>
-                {module.title}
-            </li>)}
+            <div className="row">
+                <div class = "col-11">
+                    {module.title}
+                </div>
+            </div>
+        )}
     </ul>
 
 export default ModuleListComponent
