@@ -1,5 +1,6 @@
 import React from "react";
 import './CourseRow.css';
+import {Link} from "react-router-dom";
 
 class CourseRow extends React.Component {
     constructor(props) {
@@ -20,24 +21,25 @@ class CourseRow extends React.Component {
         }
 
         return (
-            <div class="row course-row"
+            <div className="row course-row"
                  style={{backgroundColor: this.state.bgColor}}
             >
 
                 <i className="fa fa-file wbdv-row wbdv-icon"></i>
-                <div class="col-5">
+                <div className="col-5">
                     {
                         !this.state.editing &&
-                        <a
-                            class="col-3"
-                            onClick={this.props.showEditor}
-                            href="#">
+                        <Link
+                            className ="col-3"
+                            to ={`/course-editor/${this.props.course._id}`}>
+
+
                             {this.props.course.title}
-                        </a>
+                        </Link>
                     }
                     {this.state.editing &&
                     <input
-                        class="col-3"
+                        className="col-3"
                         onChange={(e) => {
                             newCourse.title = e.target.value
                         }}
@@ -45,7 +47,7 @@ class CourseRow extends React.Component {
                     />
                     }
                 </div>
-                <div class="col-2 d-sm-none d-md-block">
+                <div className="col-2 d-sm-none d-md-block">
                     Eric Park
                 </div>
 

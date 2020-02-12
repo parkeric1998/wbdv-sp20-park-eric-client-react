@@ -7,7 +7,8 @@ const WidgetList = () =>
 
             </div>
             <button className="col-1 btn btn-success btn-block wbdv-button wbdv-save"
-                    onClick="">Save
+                    // onClick=""
+            >Save
             </button>
 
             <div className="custom-control custom-switch switch-large">
@@ -53,12 +54,12 @@ const WidgetList = () =>
             <i className="fa fa-times fa-2x close-widget"/>
             <i className="fa fa-2x fa-plus wbdv-new-widget"/>
 
-            <div class ="col-11">
+            <div className ="col-11">
                 <input className="form-control wbdv-field"
                        placeholder="Heading Widget"/>
             </div>
 
-            <div class ="col-11">
+            <div className ="col-11">
                 <select className="form-control wbdv-field wbdv-dropdown">
                     <option>
                         Heading 1
@@ -72,18 +73,18 @@ const WidgetList = () =>
                 </select>
             </div>
 
-            <div class ="col-11">
+            <div className ="col-11">
                 <input className="form-control wbdv-field"
                        placeholder="Widget Name"/>
             </div>
 
-            <div class ="col-11">
+            <div className ="col-11">
                 <a className="preview-word">
                     Preview
                 </a>
             </div>
 
-            <div class ="col-11">
+            <div className ="col-11">
                 <a className="heading-text">
                     Heading Text
                 </a>

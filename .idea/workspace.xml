@@ -2,17 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="032a9f2a-c35b-4928-abde-ae8278281581" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CourseEditor/CourseEditorComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CourseGrid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CourseRow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actions/moduleActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CourseList/CourseListComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CourseList/CourseManagerHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/lessonReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/moduleReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/LessonService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/ModuleService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/CourseEditorComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/CourseEditorComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/LessonTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/LessonTabs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/ModuleListComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/ModuleListComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseGridComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseGridComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseRow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/CourseManagerContainer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/CourseManagerContainer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/TopicPills.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/TopicPills.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/WidgetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/WidgetList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseList/CourseGrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseGridComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseList/CourseGridComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseManagerHeader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseRow.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseList/CourseRow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseList/CourseRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseTableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseList/CourseTableComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/CourseManagerContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/CourseManagerContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CourseService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CourseService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +61,14 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\parke\wbdv-sp20-park-eric-client-react\src\components\CourseEditor" />
-      <recent name="C:\Users\parke\wbdv-sp20-park-eric-client-react\src\containers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\parke\wbdv-sp20-park-eric-client-react\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\parke\wbdv-sp20-park-eric-client-react\src\common" />
+      <recent name="C:\Users\parke\wbdv-sp20-park-eric-client-react\src\components\CourseList" />
+      <recent name="C:\Users\parke\wbdv-sp20-park-eric-client-react\src\components\CourseEditor" />
+      <recent name="C:\Users\parke\wbdv-sp20-park-eric-client-react\src\containers" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -85,7 +101,12 @@
       <workItem from="1580919887085" duration="10037000" />
       <workItem from="1580933691701" duration="48000" />
       <workItem from="1580934075755" duration="897000" />
-      <workItem from="1580942908947" duration="16857000" />
+      <workItem from="1580942908947" duration="17490000" />
+      <workItem from="1580963303769" duration="56000" />
+      <workItem from="1581312038482" duration="4327000" />
+      <workItem from="1581389373070" duration="7483000" />
+      <workItem from="1581441391209" duration="362000" />
+      <workItem from="1581453067830" duration="4982000" />
     </task>
     <servers />
   </component>
@@ -97,6 +118,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1580856588461" />
+    <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581456480899">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1581456480899" />
+    <state x="197" y="0" key="CommitChangelistDialog2" timestamp="1581453298342">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="197" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581453298342" />
     <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1580589296863">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -105,20 +134,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1580588997786" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1580921692841">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581316618647">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1580921692841" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/containers/CourseManagerContainer.js</url>
-          <line>91</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1581316618647" />
   </component>
 </project>

@@ -1,10 +1,12 @@
 import React from "react";
-import CourseTableComponent from "../components/CourseTableComponent";
-import CourseGridComponent from "../components/CourseGridComponent";
+import CourseTableComponent from "../components/CourseList/CourseTableComponent";
+import CourseGridComponent from "../components/CourseList/CourseGridComponent";
 import CourseEditorComponent from "../components/CourseEditor/CourseEditorComponent";
 import {findAllCourses, deleteCourse, createCourse, findCourseById, updateCourse} from "../services/CourseService";
-import CourseManagerHeader from "../components/CourseManagerHeader";
+import CourseManagerHeader from "../components/CourseList/CourseManagerHeader";
 import './CourseManagerContainer.css';
+import CourseListComponent from "../components/CourseList/CourseListComponent";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class CourseManagerContainer extends React.Component {
     state = {
@@ -94,105 +96,38 @@ class CourseManagerContainer extends React.Component {
     render() {
         return (
             <div>
-                {/*<CourseManagerHeader/>*/}
-                {
-                    !this.state.showEditor &&
-                    <h2 id="wbdv-course-header">
-                        <div className="row">
-                            <div className="col-1">
-                                <i className="wbdv-field wbdv-hamburger fa fa-bars"
-                                   id="wbdv-hamburger"></i>
-                            </div>
-                            <div className="col-4">
-                                <a>
-                                    Course Manager
-                                </a>
-                            </div>
-
-                            <div className="col-4">
-
-                                <input
-                                    className="form-control wbdv-field wbdv-new-course"
-                                    placeholder="New Course"
-                                    onChange={(e) => this.updateForm({
-                                        newCourseTitle: e.target.value
-                                    })}
-                                    value={this.state.newCourseTitle}/>
-
-                            </div>
-
-                            <div className="col-1">
-                                <i className="fa fa-plus-circle wbdv-button wbdv-add-course"
-                                   onClick={this.addCourse}>
-                                </i>
-                            </div>
-
-                        </div>
-                    </h2>
-                }
                 <div>
-                    {
-                        this.state.showEditor &&
-                        <CourseEditorComponent
-                            hideEditor={this.hideEditor}/>
-                    }
-                    {
 
-                        !this.state.showEditor &&
-                        <div>
+                    <Router>
+                        <Route
+                            path="/course-editor/:courseId"
+                            exact={true}
+                            render={(props) =>
+                                <CourseEditorComponent
+                                    {...props}
+                                    moduleId={props.match.params.moduleId}
+                                    courseId={props.match.params.courseId}
+                                />}
+                        />
 
-                            <h4 className="d-none d-lg-block "
-                                id="wbdv-title-row">
-                                <div className="row">
-                                    {
-                                        this.state.layout === 'table' &&
-                                        <a class="col-4 wbdv-header wbdv-title offset-1">
-                                            Title
-                                        </a>
-                                    }
-                                    {
-                                        this.state.layout === 'table' &&
-                                        <a className="col-2">
-                                            Owned by
-                                        </a>
-                                    }
-                                    {
-                                        this.state.layout === 'table' &&
-                                        <a className="col-3">
-                                            Last modified
-                                        </a>
-                                    }
-
-                                    <i onClick={this.toggle}
-                                       className="col-2 fa fa-th wbdv-button wbdv-grid-layout">
-                                    </i>
-
-
-                                </div>
-                            </h4>
-
-                            {
-                                this.state.layout === 'table' &&
-                                <CourseTableComponent
-                                    editCourse={this.editCourse}
-                                    showEditor={this.showEditor}
-                                    deleteCourse={this.deleteCourse}
-                                    courses={this.state.courses}
-                                />
-                            }
-                            {
-                                this.state.layout === 'grid' &&
-                                <CourseGridComponent
+                        <Route
+                            path="/"
+                            exact={true}
+                            render={() =>
+                                <CourseListComponent
+                                    layout={this.state.layout}
+                                    toggle={this.toggle}
                                     courses={this.state.courses}
                                     editCourse={this.editCourse}
                                     showEditor={this.showEditor}
                                     deleteCourse={this.deleteCourse}
-                                />
-                            }
-                        </div>
+                                    addCourse={this.addCourse}
+                                    updateForm={this.updateForm}
+                                    newCourseTitle={this.state.newCourseTitle}
+                                />}
+                        />
 
-
-                    }
+                    </Router>
                 </div>
             </div>
 

@@ -1,4 +1,4 @@
-import {API_URL} from "../constants";
+import {API_URL} from "../common/constants";
 
 export const createCourse = (course) =>
     fetch(API_URL,{

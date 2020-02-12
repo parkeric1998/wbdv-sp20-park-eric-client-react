@@ -3,7 +3,8 @@ import React from "react";
 const TopicPills = ({topics}) =>
     <ul className="nav nav-pills wbdv-topic-pill-list">
         {topics.map(topic =>
-            <li className="nav-item">
+            <li className="nav-item"
+            key ={topic._id}>
                 <a className="nav-link wbdv-topic-pill" href="#">
                     {topic.title}
                 </a>

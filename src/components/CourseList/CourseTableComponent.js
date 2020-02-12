@@ -1,6 +1,6 @@
 import React from "react";
 import CourseRow from "./CourseRow";
-import {deleteCourse} from "../services/CourseService";
+import {deleteCourse} from "../../services/CourseService";
 
 const CourseTableComponent = ({courses, deleteCourse, showEditor, editCourse }) =>
 

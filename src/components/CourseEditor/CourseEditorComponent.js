@@ -4,64 +4,58 @@ import LessonTabs from "./LessonTabs";
 import TopicPills from "./TopicPills";
 import WidgetList from "./WidgetList";
 import './CourseEditorComponent.css'
+import {combineReducers, createStore} from "redux";
+import {Provider} from "react-redux";
+import moduleReducer from "../../reducers/moduleReducer";
+import lessonReducer from "../../reducers/lessonReducer";
 
-const CourseEditorComponent = ({hideEditor}) =>
-    <div>
-        <div class="row"
-             id="wbdev-title">
-            <div class="col-1">
-                <i className="fa-2x fa fa-times"
-                   onClick={hideEditor}/>
+const rootReducer = combineReducers({
+    modules: moduleReducer,
+    lessons: lessonReducer
+})
+
+const store = createStore(rootReducer)
+
+const CourseEditorComponent = ({hideEditor, courseId, moduleId, history}) =>
+    <Provider store={store}>
+        <div>
+            <div className="row"
+                 id="wbdev-title">
+                <div className="col-1">
+                    <i className="fa-2x fa fa-times"
+                       onClick={() => history.push("/")}/>
+                </div>
+                <div className="col-2">
+                    <h3>Course Editor{courseId}</h3>
+                </div>
+                <div className="col-8">
+                    <LessonTabs
+                        moduleId={moduleId}
+                    />
+                </div>
+                <div className="col-1">
+                    <i className="fa-3x fa fa-plus"></i>
+                </div>
             </div>
-            <div class="col-2">
-                <h3>Course Editor</h3>
-            </div>
-            <div class="col-8">
-                <LessonTabs
-                    lessons={[
-                        {id: "1", title: "Build"},
-                        {id: "2", title: "Pages"},
-                        {id: "3", title: "Theme"},
-                        {id: "4", title: "Store"},
-                        {id: "5", title: "Apps"},
-                        {id: "6", title: "Settings"}
-                    ]}
-                />
-            </div>
-            <div class = "col-1">
-                <i class ="fa-3x fa fa-plus"></i>
-            </div>
+            <div className="row row-widget">
+                <div className="col-4 box">
+                    <ModuleListComponent
+                        courseId ={courseId}/>
+                </div>
+                <div className="col-8">
 
-        </div>
-
-
-        <div className="row row-widget">
-            <div className="col-4 box">
-                <ModuleListComponent
-                    modules={[
-                        {id: "1", title: "Module 1 - jQuery"},
-                        {id: "2", title: "Module 2 - React"},
-                        {id: "3", title: "Module 3 - Redux"},
-                        {id: "4", title: "Module 4 - Native"},
-                        {id: "5", title: "Module 5 - Angular"},
-                        {id: "6", title: "Module 6 - Node"},
-                        {id: "7", title: "Module 7 - Mongo"}
-                    ]}/>
-            </div>
-            <div className="col-8">
-
-                <TopicPills
-                    topics={[
-                        {id: "1", title: "Topic 1"},
-                        {id: "2", title: "Topic 2"},
-                        {id: "3", title: "Topic 3"},
-                        {id: "4", title: "Topic 4"}
-                    ]}
-
-                />
-                <WidgetList/>
+                    <TopicPills
+                        topics={[
+                            {_id: "1", title: "Topic 1"},
+                            {_id: "2", title: "Topic 2"},
+                            {_id: "3", title: "Topic 3"},
+                            {_id: "4", title: "Topic 4"}
+                        ]}
+                    />
+                    <WidgetList/>
+                </div>
             </div>
         </div>
-    </div>
+    </Provider>
 
 export default CourseEditorComponent
