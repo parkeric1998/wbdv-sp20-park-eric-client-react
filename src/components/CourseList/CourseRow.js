@@ -24,7 +24,6 @@ class CourseRow extends React.Component {
             <div className="row course-row"
                  style={{backgroundColor: this.state.bgColor}}
             >
-
                 <i className="fa fa-file wbdv-row wbdv-icon"></i>
                 <div className="col-5">
                     {

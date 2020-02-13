@@ -26,6 +26,12 @@ class CourseManagerContainer extends React.Component {
 
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.moduleId !== prevProps.moduleId) {
+            this.props.findLessonsForModule(this.props.moduleId)
+        }
+    }
+
     toggle = () =>
         this.setState(prevState => {
             if (prevState.layout === 'table') {
@@ -99,16 +105,6 @@ class CourseManagerContainer extends React.Component {
                 <div>
 
                     <Router>
-                        <Route
-                            path="/course-editor/:courseId"
-                            exact={true}
-                            render={(props) =>
-                                <CourseEditorComponent
-                                    {...props}
-                                    moduleId={props.match.params.moduleId}
-                                    courseId={props.match.params.courseId}
-                                />}
-                        />
 
                         <Route
                             path="/"
@@ -126,6 +122,40 @@ class CourseManagerContainer extends React.Component {
                                     newCourseTitle={this.state.newCourseTitle}
                                 />}
                         />
+
+                        <Route
+                            path="/course-editor/:courseId"
+                            exact={true}
+                            render={(props) =>
+                                <CourseEditorComponent
+                                    {...props}
+                                    moduleId={props.match.params.moduleId}
+                                    courseId={props.match.params.courseId}
+                                />}
+                        />
+                        <Route
+                            path="/course-editor/:courseId/modules/:moduleId/lessons"
+                            exact={true}
+                            render={(props) =>
+                                <CourseEditorComponent
+                                    {...props}
+                                    moduleId={props.match.params.moduleId}
+                                    courseId={props.match.params.courseId}
+                                    hideEditor={this.hideEditor}/>
+                            }/>
+
+
+                        <Route
+                            path="/course-editor/:courseId/module/:moduleId/lesson/:lessonId"
+                            exact={true}
+                            render={(props) =>
+                                <CourseEditorComponent
+                                    {...props}
+                                    lessonId={props.match.params.lessonId}
+                                    moduleId={props.match.params.moduleId}
+                                    courseId={props.match.params.courseId}
+                                    hideEditor={this.hideEditor}/>
+                            }/>
 
                     </Router>
                 </div>

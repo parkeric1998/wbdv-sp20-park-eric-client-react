@@ -1,4 +1,4 @@
-import {CREATE_MODULE, DELETE_MODULE} from "../actions/moduleActions";
+import {CREATE_MODULE, DELETE_MODULE, UPDATE_MODULE} from "../actions/moduleActions";
 
 const initialState = {
     modules: [
@@ -34,6 +34,16 @@ const moduleReducer = (state = initialState, action) => {
                 modules: state.modules.filter(module => module._id !== action.moduleId)
             }
         }
+        case UPDATE_MODULE: {
+            return state.map(oldmodule=>{
+                if (oldmodule._id === action.payload._id){
+                    return module
+                }
+                return oldmodule
+            })
+        }
+
+
         default:
             return state
     }

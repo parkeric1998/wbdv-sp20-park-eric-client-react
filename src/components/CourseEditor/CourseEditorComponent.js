@@ -8,6 +8,7 @@ import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import moduleReducer from "../../reducers/moduleReducer";
 import lessonReducer from "../../reducers/lessonReducer";
+import ModuleListContainer from "../../containers/ModuleListContainer";
 
 const rootReducer = combineReducers({
     modules: moduleReducer,
@@ -26,7 +27,7 @@ const CourseEditorComponent = ({hideEditor, courseId, moduleId, history}) =>
                        onClick={() => history.push("/")}/>
                 </div>
                 <div className="col-2">
-                    <h3>Course Editor{courseId}</h3>
+                    <h3>{courseId}</h3>
                 </div>
                 <div className="col-8">
                     <LessonTabs
@@ -39,8 +40,10 @@ const CourseEditorComponent = ({hideEditor, courseId, moduleId, history}) =>
             </div>
             <div className="row row-widget">
                 <div className="col-4 box">
-                    <ModuleListComponent
-                        courseId ={courseId}/>
+                    <ModuleListContainer
+                        courseId={courseId}
+                        moduleId={moduleId}
+                        history={history}/>
                 </div>
                 <div className="col-8">
 

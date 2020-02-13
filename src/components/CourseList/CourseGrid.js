@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class CourseGrid extends React.Component {
     constructor(props) {
@@ -19,14 +20,14 @@ class CourseGrid extends React.Component {
                 <div>
                     <i className="fa-5x fa fa-file wbdv-row wbdv-icon"></i>
                 </div>
-
                 {
                     !this.state.editing &&
-                    <a
+                    <Link
                         onClick={this.props.showEditor}
-                        href="#">
+                        href="#"
+                        to ={`/course-editor/${this.props.course._id}`}>
                         {this.props.course.title}
-                    </a>
+                    </Link>
                 }
                 {this.state.editing &&
                 <input

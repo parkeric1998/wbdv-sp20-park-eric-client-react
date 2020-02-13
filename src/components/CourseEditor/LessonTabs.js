@@ -1,7 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
 import {LESSONS_API_URL, MODULES_LESSONS_API_URL} from "../../common/constants";
-import {updateLesson} from "../../services/LessonService";
+// import {updateLesson} from "../../services/LessonService";
+import LessonService from "../../services/LessonService"
 
 // const LessonTabs = ({lessons}) =>
 
@@ -24,6 +25,8 @@ import {updateLesson} from "../../services/LessonService";
 //
 // export default connect(stateToPropertyMapper)
 // (LessonTabs)
+
+
 
 class LessonTabs extends React.Component {
 
@@ -48,64 +51,23 @@ class LessonTabs extends React.Component {
 
     render() {
         return(
-            <ul className="nav nav-tabs">
+            <ul>
                 {
                     this.props.lessons && this.props.lessons.map(lesson =>
-                        <li className={`nav-item`}
-                            onClick={() => this.setState({
-                                selectedLessonId: lesson._id
-                            })}
-                            key={lesson._id}>
-                            <a className={`nav-link
-                                            ${(this.state.editingLessonId === lesson._id || this.state.selectedLessonId === lesson._id)?'active':''}`}>
-                                {this.state.editingLessonId !== lesson._id &&
-                                <span>{lesson.title}</span>}
-                                {this.state.editingLessonId === lesson._id &&
-                                <input
-                                    onChange={(e) => {
-                                        const newTitle = e.target.value
-                                        this.setState(prevState => ({
-                                            lesson: {
-                                                ...prevState.lesson,
-                                                title: newTitle
-                                            }
-                                        }))
-                                    }}
-                                    value={this.state.lesson.title}/>}
-                                <button onClick={() =>
-                                {
-                                    this.props.updateLesson(this.state.lesson)
-                                        .then(() =>
-                                            this.setState({
-                                                editingLessonId: ''
-                                            })
-                                        )
-                                }
-                                }>
-                                    Save
-                                </button>
-                                <button onClick={
-                                    () => this.props.deleteLesson(lesson._id)}>
-                                    X
-                                </button>
-                                <button onClick={() => {
-                                    this.setState({
-                                        lesson: lesson,
-                                        editingLessonId: lesson._id
-                                    })
-                                }}>
-                                    Edit
-                                </button>
-                            </a>
-                        </li>)
+                        <li key={lesson._id}>
+                            {lesson.title}
+                            <button onClick={() => this.props.deleteLesson(this.props.moduleId)}>-</button>
+                        </li>
+
+                    )
                 }
-                <li className="nav-item">
                     <button onClick={() => this.props.addLesson(this.props.moduleId)}>+</button>
-                </li>
+
             </ul>
         )
     }
 }
+
 
 
 const stateToPropertyMapper = (state) => ({
@@ -113,15 +75,14 @@ const stateToPropertyMapper = (state) => ({
 })
 
 const dispatcherToPropertyMapper = (dispatcher) => ({
-    findLessonsForModule: moduleId =>
-        fetch(MODULES_LESSONS_API_URL(moduleId))
-            .then(response => response.json())
+    findLessonsForModule: (moduleId) =>
+       LessonService.findLessonsForModule(moduleId)
             .then(lessons => dispatcher({
                 type: 'FIND_LESSONS_FOR_MODULE',
                 lessons: lessons
             })),
     updateLesson: async (lesson) => {
-        const actualLesson = await updateLesson(lesson)
+        const actualLesson = await LessonService.updateLesson(lesson)
         dispatcher({
             type: 'UPDATE_LESSON',
             lesson: actualLesson,
@@ -141,6 +102,7 @@ const dispatcherToPropertyMapper = (dispatcher) => ({
                     type: 'CREATE_LESSON',
                     lesson: actualLesson
                 })),
+
     deleteLesson: (lessonId) =>
         fetch(`${LESSONS_API_URL}/${lessonId}`, {
             method: 'DELETE'

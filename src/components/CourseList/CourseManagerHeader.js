@@ -24,7 +24,9 @@ const CourseManagerHeader =
                 <input
                     className="form-control wbdv-field wbdv-new-course"
                     placeholder="New Course"
-                    onChange={updateForm}
+                    onChange={(e)=>updateForm({
+                        newCourseTitle: e.target.value
+                    })}
                     value={newCourseTitle}/>
 
             </div>
