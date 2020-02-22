@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {CREATE_MODULE, createModule, DELETE_MODULE, deleteModule} from "../../actions/moduleActions";
 import moduleService, {findModuleForCourse} from '../../services/ModuleService'
 import ModuleListItem from "./ModuleListItem";
+import {Link} from "react-router-dom";
 
 export default class ModuleListComponent extends React.Component {
     componentDidMount() {
@@ -25,6 +26,12 @@ export default class ModuleListComponent extends React.Component {
     render() {
         return (
             <ul>
+                {/*<li>*/}
+                {/*    <Link to={`/course-editor/${this.props.courseId}/modules/${this.props.moduleId}/topic/111`}>*/}
+                {/*        test*/}
+                {/*    </Link>*/}
+
+                {/*</li>*/}
                 {this.props.modules && this.props.modules.map(module =>
                     <ModuleListItem
                         key={module._id}

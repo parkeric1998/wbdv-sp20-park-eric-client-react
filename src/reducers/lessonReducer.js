@@ -1,10 +1,9 @@
 const initialState = {
-
     lessons : [
-        {title: "Lessons 123", _id : "123"},
-        {title: "Lessons 234", _id : "234"},
-        {title: "Lessons 345", _id : "345"},
-        {title: "Lessons 000", _id : "000"}
+        {_id : "123", title: "Lessons 123"},
+        { _id : "234", title: "Lessons 234"},
+        {_id : "345", title: "Lessons 345"},
+        {_id : "000", title: "Lessons 000"}
     ]
 }
 
@@ -24,8 +23,7 @@ const lessonReducer = (state = initialState, action) => {
             return {
                 lessons: [
                     ...state.lessons,
-
-                    action.newLesson
+                    action.lesson
                 ]
             }
         case "DELETE_LESSON" :

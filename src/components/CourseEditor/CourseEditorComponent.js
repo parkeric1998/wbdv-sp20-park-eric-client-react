@@ -8,16 +8,20 @@ import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import moduleReducer from "../../reducers/moduleReducer";
 import lessonReducer from "../../reducers/lessonReducer";
+import widgetReducer from "../../reducers/WidgetReducer";
 import ModuleListContainer from "../../containers/ModuleListContainer";
+import topicReducer from "../../reducers/topicReducer";
 
 const rootReducer = combineReducers({
+    lessons: lessonReducer,
     modules: moduleReducer,
-    lessons: lessonReducer
+    topics: topicReducer,
+    widgets: widgetReducer
 })
 
 const store = createStore(rootReducer)
 
-const CourseEditorComponent = ({hideEditor, courseId, moduleId, history}) =>
+const CourseEditorComponent = ({hideEditor, courseId, moduleId, history,lessonId, topicId}) =>
     <Provider store={store}>
         <div>
             <div className="row"
@@ -32,6 +36,8 @@ const CourseEditorComponent = ({hideEditor, courseId, moduleId, history}) =>
                 <div className="col-8">
                     <LessonTabs
                         moduleId={moduleId}
+                        lessonId={lessonId}
+                        courseId={courseId}
                     />
                 </div>
                 <div className="col-1">
@@ -48,14 +54,11 @@ const CourseEditorComponent = ({hideEditor, courseId, moduleId, history}) =>
                 <div className="col-8">
 
                     <TopicPills
-                        topics={[
-                            {_id: "1", title: "Topic 1"},
-                            {_id: "2", title: "Topic 2"},
-                            {_id: "3", title: "Topic 3"},
-                            {_id: "4", title: "Topic 4"}
-                        ]}
+                        lessonId={lessonId}
+                        moduleId={moduleId}
+                        courseId={courseId}
                     />
-                    <WidgetList/>
+                    <WidgetList topicId={topicId}/>
                 </div>
             </div>
         </div>

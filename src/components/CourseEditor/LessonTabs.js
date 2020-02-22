@@ -3,30 +3,7 @@ import {connect} from "react-redux";
 import {LESSONS_API_URL, MODULES_LESSONS_API_URL} from "../../common/constants";
 // import {updateLesson} from "../../services/LessonService";
 import LessonService from "../../services/LessonService"
-
-// const LessonTabs = ({lessons}) =>
-
-    // <div className="row">
-    //     {lessons && lessons.map(lesson =>
-    //         <div
-    //             key={lesson._id}
-    //             className="col-2">
-    //             <h3>
-    //                 {lesson.title}
-    //             </h3>
-    //         </div>
-    //     )}
-    // </div>
-
-// const stateToPropertyMapper = (state) => ({
-//     lessons: state.lessons.lessons
-// })
-//
-//
-// export default connect(stateToPropertyMapper)
-// (LessonTabs)
-
-
+import {Link} from "react-router-dom";
 
 class LessonTabs extends React.Component {
 
@@ -35,7 +12,7 @@ class LessonTabs extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.moduleId !== prevProps.moduleId) {
+        if(this.props.lessonId !== prevProps.lessonId) {
             this.props.findLessonsForModule(this.props.moduleId)
         }
     }
@@ -49,16 +26,20 @@ class LessonTabs extends React.Component {
         }
     }
 
+
     render() {
         return(
             <ul>
                 {
                     this.props.lessons && this.props.lessons.map(lesson =>
-                        <li key={lesson._id}>
+                        <li
+                            key={lesson._id}>
                             {lesson.title}
                             <button onClick={() => this.props.deleteLesson(this.props.moduleId)}>-</button>
+                            <Link to={`/course-editor/${this.props.courseId}/modules/${this.props.moduleId}/lessons/${lesson._id}`}>
+                                {lesson.title}
+                            </Link>
                         </li>
-
                     )
                 }
                     <button onClick={() => this.props.addLesson(this.props.moduleId)}>+</button>

@@ -1,96 +1,173 @@
 import React from "react";
+import {connect} from "react-redux";
+import HeadingWidget from "./widgets/HeadingWidget";
+import {ParagraphWidget} from "./widgets/ParagraphWidget";
 
-const WidgetList = () =>
-    <div>
-        <div className="row">
-            <div className="col-9">
+class WidgetList extends React.Component {
+    componentDidMount() {
+        this.props.findAllWidgets()
+        // this.props.findWidgetsForTopic(this.props.topicId)
+    }
 
-            </div>
-            <button className="col-1 btn btn-success btn-block wbdv-button wbdv-save"
-                    // onClick=""
-            >Save
-            </button>
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.topicId !== this.props.topicId) {
+            this.props.findWidgetsForTopic(this.props.topicId)
+        }
+    }
 
-            <div className="custom-control custom-switch switch-large">
-                <label className="custom-control-label" htmlFor="customSwitches">Preview</label>
-                <input type="checkbox" className="custom-control-input" id="customSwitches"/>
+    state = {
+        widget: {
+            title: ''
+        }
+    }
 
-            </div>
+    save = (widget) => {
+        this.setState(prevState => {
+            return {
+                widget: widget
+            }
+        })
+        this.props.updateWidget(widget.id, widget)
+    }
 
-        </div>
+    render() {
+        return (
+            // <ul>
+            //     <li>
+            //         {this.props.topicId}
+            //     </li>
+            //     {
+            //     this.props.widgets.map(widget =>
+            //         <li key={widget.id}>
+            //             {
+            //                 widget.type === "HEADING" &&
+            //                     <HeadingWidget widget ={widget}/>
+            //             }
+            //             {
+            //                 widget.type === "PARAGRAPH" &&
+            //                     <ParagraphWidget widget ={widget}/>
+            //             }
+            //             {widget.title}
+            //         </li>
+            //     )
+            // }
+            //     <button
+            //         onClick={this.props.createWidget}>
+            //         +
+            //     </button>
+            // </ul>
+            <ul>
+                <li>
+                    {this.props.topicId}
+                </li>
+                <li>
+                    {this.state.widget.title}
+                </li>
+                {
+                    this.props.widgets && this.props.widgets.map(widget =>
+                        <li key={widget.id}>
+                            <button onClick={() =>
+                                this.props.deleteWidget(widget.id)}>
+                                X
+                            </button>
+                            <button onClick={() =>
+                                this.setState({
+                                    widget: widget
+                                })}>
+                                ...
+                            </button>
+                            {/*<h3>Common to all widgets</h3>*/}
+                            {
+                                widget.type === "HEADING" &&
+                                <HeadingWidget
+                                    save={this.save}
+                                    editing={widget.id === this.state.widget.id}
+                                    widget={widget}/>
+                            }
+                            {
+                                widget.type === "PARAGRAPH" &&
+                                <ParagraphWidget
+                                    save={this.save}
+                                    editing={widget.id === this.state.widget.id}
+                                    widget={widget}/>
+                            }
+                        </li>
+                    )
+                }
+                <li>
+                    <button
+                        onClick={() =>
+                            this.props.createWidget({
+                                id: (new Date()).getTime() + "",
+                                topicId: this.props.topicId,
+                                title: "New Widget"
+                            })}>
+                        +
+                    </button>
+                </li>
+            </ul>
+        )
+    }
+}
 
-        <div className="row top-row-heading">
-            <a className="col-1">
+const stateToPropertyMapper = (state) => ({
+    widgets: state.widgets.widgets
+})
 
-            </a>
+const dispatcherToPropertyMapper = (dispatch) => ({
+    updateWidget: (wid, widget) =>
+        fetch(`http://localhost:8080/widgets/${wid}`, {
+            method: "PUT",
+            body: JSON.stringify(widget),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(response => response.json())
+            .then(status => dispatch({
+                type: 'UPDATE_WIDGET',
+                widget: widget
+            })),
+    deleteWidget: (wid) =>
+        fetch(`http://localhost:8080/widgets/${wid}`, {
+            method: "DELETE"
+        }).then(response => response.json())
+            .then(status => dispatch({
+                type: 'DELETE_WIDGET',
+                widgetId: wid
+            })),
 
-            <a className="heading-widget-title">
-                Heading Widget
-            </a>
+    createWidget: (widget) =>
+        fetch("http://localhost:8080/widgets", {
+            method: "POST",
+            body: JSON.stringify({
+                id: (new Date()).getTime() + "",
+                title: "New Widget"
+            }),
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(response => response.json())
+            .then(actualWidget => dispatch({
+                type: "CREATE_WIDGET",
+                widget: actualWidget
+            })),
+    findWidgetsForTopic: (tid) =>
+        fetch(`http://localhost:8080/topics/${tid}/widgets`)
+            .then(response => response.json())
+            .then(actualWidgets => dispatch({
+                type: "FIND_WIDGETS_FOR_TOPIC",
+                widgets: actualWidgets
+            })),
+    findAllWidgets: () =>
+        fetch("http://localhost:8080/widgets")
+            .then(response => response.json())
+            .then(actualWidgets => dispatch({
+                type: "FIND_ALL_WIDGETS",
+                widgets: actualWidgets
+            }))
+})
 
-            <a className="col-4">
-
-            </a>
-            <i className="fa fa-arrow-up fa-2x"></i>
-            <i className="fa fa-arrow-down fa-2x"></i>
-
-            <div className="">
-                <select className="form-control wbdv-dropdown-widget">
-                    <option>
-                        Heading Widget
-                    </option>
-                    <option>
-                        Paragraph Widget
-                    </option>
-                    <option>
-                        List Widget
-                    </option>
-                    <option>
-                        Image Widget
-                    </option>
-                </select>
-            </div>
-
-            <i className="fa fa-times fa-2x close-widget"/>
-            <i className="fa fa-2x fa-plus wbdv-new-widget"/>
-
-            <div className ="col-11">
-                <input className="form-control wbdv-field"
-                       placeholder="Heading Widget"/>
-            </div>
-
-            <div className ="col-11">
-                <select className="form-control wbdv-field wbdv-dropdown">
-                    <option>
-                        Heading 1
-                    </option>
-                    <option>
-                        Heading 2
-                    </option>
-                    <option>
-                        Heading 3
-                    </option>
-                </select>
-            </div>
-
-            <div className ="col-11">
-                <input className="form-control wbdv-field"
-                       placeholder="Widget Name"/>
-            </div>
-
-            <div className ="col-11">
-                <a className="preview-word">
-                    Preview
-                </a>
-            </div>
-
-            <div className ="col-11">
-                <a className="heading-text">
-                    Heading Text
-                </a>
-            </div>
-
-        </div>
-    </div>
-
-export default WidgetList
+export default connect(
+    stateToPropertyMapper,
+    dispatcherToPropertyMapper)
+(WidgetList)

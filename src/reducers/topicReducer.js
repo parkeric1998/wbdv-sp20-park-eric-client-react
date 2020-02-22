@@ -1,10 +1,10 @@
 const initialState = {
 
     topics : [
-        {title: "Topic 1", _id : "123"},
-        {title: "Topic 2", _id : "234"},
-        {title: "Topic 3", _id : "345"},
-        {title: "Topic 4", _id : "000"}
+        {_id : "123", title: "Topic 1" },
+        {_id : "234", title: "Topic 2"},
+        {_id : "345", title: "Topic test"},
+        {_id : "000", title: "Topic 4"}
     ]
 }
 
@@ -24,8 +24,7 @@ const topicReducer = (state = initialState, action) => {
             return {
                 topics: [
                     ...state.topics,
-
-                    action.newLesson
+                    action.topic
                 ]
             }
         case "DELETE_TOPIC" :
@@ -35,7 +34,7 @@ const topicReducer = (state = initialState, action) => {
 
         case "UPDATE_TOPIC" :
             return {
-                topics: state.topics.filter(topics => topics._id !== action.lessonId)
+                topics: action.topics
             }
 
         default:

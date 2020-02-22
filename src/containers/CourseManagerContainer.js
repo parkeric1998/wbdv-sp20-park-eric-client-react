@@ -133,6 +133,20 @@ class CourseManagerContainer extends React.Component {
                                     courseId={props.match.params.courseId}
                                 />}
                         />
+                        {/*testing with youtube */}
+                        <Route
+                            path="/course-editor/:courseId/modules/:moduleId/topics/topicId"
+                            exact={true}
+                            render={(props) =>
+                                <CourseEditorComponent
+                                    {...props}
+                                    topicId={props.match.params.topicId}
+                                    lessonId={props.match.params.lessonId}
+                                    moduleId={props.match.params.moduleId}
+                                    courseId={props.match.params.courseId}
+                                    hideEditor={this.hideEditor}/>
+                            }/>
+
                         <Route
                             path="/course-editor/:courseId/modules/:moduleId/lessons"
                             exact={true}
@@ -146,11 +160,24 @@ class CourseManagerContainer extends React.Component {
 
 
                         <Route
-                            path="/course-editor/:courseId/module/:moduleId/lesson/:lessonId"
+                            path="/course-editor/:courseId/modules/:moduleId/lessons/:lessonId"
                             exact={true}
                             render={(props) =>
                                 <CourseEditorComponent
                                     {...props}
+                                    lessonId={props.match.params.lessonId}
+                                    moduleId={props.match.params.moduleId}
+                                    courseId={props.match.params.courseId}
+                                    hideEditor={this.hideEditor}/>
+                            }/>
+
+                        <Route
+                            path="/course-editor/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"
+                            exact={true}
+                            render={(props) =>
+                                <CourseEditorComponent
+                                    {...props}
+                                    topicId={props.match.params.topicId}
                                     lessonId={props.match.params.lessonId}
                                     moduleId={props.match.params.moduleId}
                                     courseId={props.match.params.courseId}

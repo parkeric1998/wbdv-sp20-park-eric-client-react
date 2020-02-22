@@ -2,25 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="032a9f2a-c35b-4928-abde-ae8278281581" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CourseEditor/ModuleListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/ModuleListContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reducers/topicReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/TopicService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CourseEditor/widgets/HeadingWidget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CourseEditor/widgets/ParagraphWidget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/WidgetReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/WidgetService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/moduleActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/moduleActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/CourseEditorComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/CourseEditorComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/LessonTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/LessonTabs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/ModuleListComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/ModuleListComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/TopicPills.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/TopicPills.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseList/CourseGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseList/CourseGrid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseList/CourseManagerHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseList/CourseManagerHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseList/CourseRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseList/CourseRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/WidgetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/WidgetList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/CourseManagerContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/CourseManagerContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/lessonReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/lessonReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/moduleReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/moduleReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/topicReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/topicReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/LessonService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/LessonService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ModuleService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ModuleService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/TopicService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TopicService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +63,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wbdev-sp20-park-eric-server-java" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -116,6 +114,9 @@
       <workItem from="1581441391209" duration="362000" />
       <workItem from="1581453067830" duration="4982000" />
       <workItem from="1581524283683" duration="34397000" />
+      <workItem from="1581911352674" duration="1438000" />
+      <workItem from="1582231426186" duration="19304000" />
+      <workItem from="1582337792556" duration="6061000" />
     </task>
     <servers />
   </component>
@@ -123,10 +124,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580856588461">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582331026479">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1580856588461" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1582331026479" />
     <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581456480899">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -135,10 +136,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="197" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581453298342" />
-    <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1580589296863">
+    <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1582233774158">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1580589296863" />
+    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1582233774158" />
     <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1580588997786">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

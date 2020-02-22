@@ -35,12 +35,9 @@ const moduleReducer = (state = initialState, action) => {
             }
         }
         case UPDATE_MODULE: {
-            return state.map(oldmodule=>{
-                if (oldmodule._id === action.payload._id){
-                    return module
-                }
-                return oldmodule
-            })
+            return {
+                modules: state.modules.map(module => module._id === action.module.id ? action.module :module)
+            }
         }
 
 

@@ -10,7 +10,7 @@ export const createLesson = (moduleId, lesson) =>
     }).then(response => response.json())
 
 export const findLessonsForModule = (moduleId) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/001203225/module/${moduleId}/lessons`)
+    fetch(`https://wbdv-generic-server.herokuapp.com/api/001203225/modules/${moduleId}/lessons`)
         .then(response => response.json())
 
 export const updateLesson = async (lessonId,lesson) =>
