@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="032a9f2a-c35b-4928-abde-ae8278281581" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CourseEditor/widgets/HeadingWidget.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CourseEditor/widgets/ParagraphWidget.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reducers/WidgetReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/WidgetService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/CourseEditorComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/CourseEditorComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/LessonTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/LessonTabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/ModuleListComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/ModuleListComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/TopicPills.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/TopicPills.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/WidgetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/WidgetList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/CourseManagerContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/CourseManagerContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/lessonReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/lessonReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/moduleReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/moduleReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/topicReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/topicReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/LessonService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/LessonService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TopicService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TopicService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +102,9 @@
       <workItem from="1581524283683" duration="34397000" />
       <workItem from="1581911352674" duration="1438000" />
       <workItem from="1582231426186" duration="19304000" />
-      <workItem from="1582337792556" duration="6061000" />
+      <workItem from="1582337792556" duration="7403000" />
+      <workItem from="1583857281971" duration="1604000" />
+      <workItem from="1583943582810" duration="617000" />
     </task>
     <servers />
   </component>
@@ -136,10 +124,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="197" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581453298342" />
-    <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1582233774158">
+    <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1583945532955">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1582233774158" />
+    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1583945532955" />
     <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1580588997786">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

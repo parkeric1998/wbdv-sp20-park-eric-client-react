@@ -8,7 +8,8 @@ import {Link} from "react-router-dom";
 class TopicPills extends React.Component {
 
     componentDidMount() {
-        this.props.findTopicsForLesson(this.props.topicId)
+        // this.props.findTopicsForLesson(this.props.topicId)
+        this.props.findAllTopics()
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -89,6 +90,13 @@ const dispatcherToPropertyMapper = (dispatcher) => ({
     //                 lessons: lessons
     //             })
     //         )
+    findAllTopics: () =>
+        fetch("http://localhost:8080/api/topics")
+            .then(res=>res.json())
+            .then(topics=>dispatcher({
+                type: "SET_TOPICS",
+                topics: topics
+                }))
 })
 
 export default connect(

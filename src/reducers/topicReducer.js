@@ -11,6 +11,11 @@ const initialState = {
 const topicReducer = (state = initialState, action) => {
     switch (action.type) {
 
+        case "SET_TOPICS":
+            return{
+                topics: action.topics
+            }
+
         case "FIND_TOPICS_FOR_LESSONS":
             return {
                 topics: action.topics
