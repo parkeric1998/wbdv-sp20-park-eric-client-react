@@ -12,7 +12,7 @@ class LessonTabs extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.lessonId !== prevProps.lessonId) {
+        if(this.props.moduleId !== prevProps.moduleId) {
             this.props.findLessonsForModule(this.props.moduleId)
         }
     }
@@ -35,7 +35,7 @@ class LessonTabs extends React.Component {
                         <li
                             key={lesson._id}>
                             {lesson.title}
-                            <button onClick={() => this.props.deleteLesson(this.props.moduleId)}>-</button>
+                            <button onClick={() => this.props.deleteLesson(lesson._id)}>-</button>
                             <Link to={`/course-editor/${this.props.courseId}/modules/${this.props.moduleId}/lessons/${lesson._id}`}>
                                 {lesson.title}
                             </Link>

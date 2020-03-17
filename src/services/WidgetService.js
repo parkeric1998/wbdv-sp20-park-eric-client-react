@@ -17,7 +17,7 @@ export const findAllWidgets = () =>
         .then(response => response.json())
 
 export const updateWidget = (wid, widget) =>
-    fetch(`http://localhost:8080/widgets/${wid}`, {
+    fetch(`http://localhost:8080/api/widgets/${wid}`, {
         method: "PUT",
         body: JSON.stringify(widget),
         headers: {

@@ -55,7 +55,7 @@ class HeadingWidget extends React.Component {
                             <option value={6}>Heading 6</option>
                         </select>
                         <button onClick={() =>
-                            this.props.save(this.state.widget)}>
+                            this.props.saveWidget(this.state.widget)}>
                             ok
                         </button>
                     </div>

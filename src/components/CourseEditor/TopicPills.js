@@ -8,12 +8,11 @@ import {Link} from "react-router-dom";
 class TopicPills extends React.Component {
 
     componentDidMount() {
-        // this.props.findTopicsForLesson(this.props.topicId)
-        this.props.findAllTopics()
+        this.props.findTopicsForLesson(this.props.lessonId)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.topicId !== prevProps.topicId) {
+        if(prevProps.lessonId !== this.props.lessonId) {
             this.props.findTopicsForLesson(this.props.lessonId)
         }
     }
@@ -24,16 +23,17 @@ class TopicPills extends React.Component {
                 {
                     this.props.topics && this.props.topics.map(topic =>
                         <li className="nav-item"
-                            key={topic._id}>
-                            <Link to={`/course-editor/${this.props.courseId}/modules/${this.props.moduleId}/lessons/${this.props.lessonId}/topics/${topic._id}`}>
+                            key={topic.id}>
+                            <Link to={`/course-editor/${this.props.courseId}/modules/${this.props.moduleId}/lessons/${this.props.lessonId}/topics/${topic.id}`}>
                                 {topic.title}
                             </Link>
-                            {/*<button onClick={() => this.props.deleteLesson(this.props.moduleId)}>-</button>*/}
+                            <button onClick={() => this.props.deleteTopic(this.topicId)}>-</button>
 
                         </li>
                     )
                 }
-                <button onClick={() => this.props.addTopic(this.props.lessonId)}>+</button>
+                <button onClick={() => this.props.createTopic(this.props.lessonId,{title: "New Topic"})}>+</button>
+
             </ul>
         )
     }
@@ -44,59 +44,47 @@ const stateToPropertyMapper = (state) => ({
 })
 
 const dispatcherToPropertyMapper = (dispatcher) => ({
-    findTopicsForLesson: (topicId) =>
-        TopicService.findTopicsForLesson(topicId)
+    findTopicsForLesson: (lessonId) =>
+        fetch(`http://localhost:8080/api/lessons/${lessonId}/topics`)
+            .then(response => response.json())
             .then(topics => dispatcher({
-                type: 'FIND_TOPICS_FOR_LESSONS',
+                type: 'FIND_ALL_TOPICS',
                 topics: topics
             })),
-    updateTopic: async (topic) => {
-        const actualTopic = await TopicService.updateTopic(topic)
-        dispatcher({
-            type: 'UPDATE_Topic',
-            topic: actualTopic,
-            topicId: actualTopic._id
-        })
-    },
-    addTopic: (lessonId) =>
-        fetch(LESSONS_TOPICS_API_URL(lessonId), {
+
+    createTopic: (lessonId, newTopic) =>
+        fetch(`http://localhost:8080/api/lessons/${lessonId}/topics`, {
             method: 'POST',
-            body: JSON.stringify({title: 'New Topic'}),
+            body: JSON.stringify(newTopic),
             headers: {
                 'content-type': 'application/json'
             }
         }).then(response => response.json())
-            .then(actualTopic =>
+            .then(newTopic => dispatcher({
+                type: 'CREATE_TOPIC',
+                topic: newTopic
+            })),
+
+
+    deleteTopic: (topicId) =>
+        fetch(`http://localhost:8080/api/topics/${topicId}`, {
+            method: 'DELETE'
+        }).then(response => response.json())
+            .then(status =>
                 dispatcher({
-                    type: 'CREATE_TOPIC',
-                    topic: actualTopic
+                    type: 'DELETE_TOPIC',
+                    topicId: topicId
                 })),
 
-    // deleteLesson: (lessonId) =>
-    //     fetch(`${LESSONS_API_URL}/${lessonId}`, {
-    //         method: 'DELETE'
-    //     }).then(response => response.json())
-    //         .then(status =>
-    //             dispatcher({
-    //                 type: 'DELETE_LESSON',
-    //                 lessonId: lessonId
-    //             })),
-    // findAllLessons: () =>
-    //     fetch(LESSONS_API_URL)
-    //         .then(response => response.json())
-    //         .then(lessons =>
-    //             dispatcher({
-    //                 type: 'FIND_ALL_LESSONS',
-    //                 lessons: lessons
-    //             })
-    //         )
-    findAllTopics: () =>
-        fetch("http://localhost:8080/api/topics")
-            .then(res=>res.json())
-            .then(topics=>dispatcher({
-                type: "SET_TOPICS",
-                topics: topics
-                }))
+
+
+    // findAllTopics: () =>
+    //     fetch("http://localhost:8080/api/topics")
+    //         .then(res=>res.json())
+    //         .then(topics=>dispatcher({
+    //             type: "SET_TOPICS",
+    //             topics: topics
+    //             }))
 })
 
 export default connect(

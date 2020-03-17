@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="032a9f2a-c35b-4928-abde-ae8278281581" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/CourseEditor/widgets/ImageWidget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CourseEditor/widgets/ListWidget.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/LessonTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/LessonTabs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/TopicPills.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/TopicPills.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/topicReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/topicReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/WidgetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/WidgetList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor/widgets/HeadingWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor/widgets/HeadingWidget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/TopicService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TopicService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/WidgetService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/WidgetService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wbdev-sp20-park-eric-server-java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -104,7 +110,14 @@
       <workItem from="1582231426186" duration="19304000" />
       <workItem from="1582337792556" duration="7403000" />
       <workItem from="1583857281971" duration="1604000" />
-      <workItem from="1583943582810" duration="617000" />
+      <workItem from="1583943582810" duration="7857000" />
+      <workItem from="1584035214556" duration="2870000" />
+      <workItem from="1584043997900" duration="3716000" />
+      <workItem from="1584047733626" duration="14053000" />
+      <workItem from="1584119649600" duration="5524000" />
+      <workItem from="1584135639273" duration="6535000" />
+      <workItem from="1584459029283" duration="744000" />
+      <workItem from="1584482630309" duration="408000" />
     </task>
     <servers />
   </component>
@@ -112,10 +125,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582331026479">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584055395606">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1582331026479" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1584055395606" />
     <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581456480899">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -124,10 +137,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="197" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581453298342" />
-    <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1583945532955">
+    <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1584119799095">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1583945532955" />
+    <state x="421" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1584119799095" />
     <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1580588997786">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -136,9 +149,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="450" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1581541645975" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581525573895">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1584055078198">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1581525573895" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1584055078198" />
   </component>
 </project>
