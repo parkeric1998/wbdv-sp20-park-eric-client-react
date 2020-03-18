@@ -1,7 +1,7 @@
 import {TOPICS_API_URL, TOPICS_TOPICS_API_URL} from "../common/constants";
 
 export const createTopic = (lessonId, topic) =>
-    fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/lessons/${lessonId}/topics`, {
+    fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/lessons/${lessonId}/topics`, {
         method: "POST",
         body: JSON.stringify(topic),
         headers: {
@@ -10,7 +10,7 @@ export const createTopic = (lessonId, topic) =>
     }).then(response => response.json())
 
 export const findTopicsForLesson = (lessonId) =>
-    fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/lessons/${lessonId}/topics`)
+    fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/lessons/${lessonId}/topics`)
         .then(response => response.json())
 
 export const updateTopic = async (topicId,topic) =>

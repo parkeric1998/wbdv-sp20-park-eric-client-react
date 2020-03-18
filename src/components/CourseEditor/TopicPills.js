@@ -45,7 +45,7 @@ const stateToPropertyMapper = (state) => ({
 
 const dispatcherToPropertyMapper = (dispatcher) => ({
     findTopicsForLesson: (lessonId) =>
-        fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/lessons/${lessonId}/topics`)
+        fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/lessons/${lessonId}/topics`)
             .then(response => response.json())
             .then(topics => dispatcher({
                 type: 'FIND_ALL_TOPICS',
@@ -53,7 +53,7 @@ const dispatcherToPropertyMapper = (dispatcher) => ({
             })),
 
     createTopic: (lessonId, newTopic) =>
-        fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/lessons/${lessonId}/topics`, {
+        fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/lessons/${lessonId}/topics`, {
             method: 'POST',
             body: JSON.stringify(newTopic),
             headers: {
@@ -67,7 +67,7 @@ const dispatcherToPropertyMapper = (dispatcher) => ({
 
 
     deleteTopic: (topicId) =>
-        fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/topics/${topicId}`, {
+        fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/topics/${topicId}`, {
             method: 'DELETE'
         }).then(response => response.json())
             .then(status =>

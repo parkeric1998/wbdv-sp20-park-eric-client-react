@@ -104,7 +104,7 @@ const stateToPropertyMapper = (state) => ({
 
 const dispatcherToPropertyMapper = (dispatch) => ({
     updateWidget: (wid, widget) =>
-        fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/widgets/${wid}`, {
+        fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/widgets/${wid}`, {
             method: "PUT",
             body: JSON.stringify(widget),
             headers: {
@@ -116,7 +116,7 @@ const dispatcherToPropertyMapper = (dispatch) => ({
                 widget: widget
             })),
     deleteWidget: (wid) =>
-        fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/widgets/${wid}`, {
+        fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/widgets/${wid}`, {
             method: "DELETE"
         }).then(response => response.json())
             .then(status => dispatch({
@@ -125,7 +125,7 @@ const dispatcherToPropertyMapper = (dispatch) => ({
             })),
 
     createWidget: (topicId,widget) =>
-        fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/topics/${topicId}/widgets`, {
+        fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/topics/${topicId}/widgets`, {
             method: "POST",
             body: JSON.stringify(widget),
             headers: {
@@ -137,14 +137,14 @@ const dispatcherToPropertyMapper = (dispatch) => ({
                 widget: actualWidget
             })),
     findWidgetsForTopic: (tid) =>
-        fetch(`http://us-cdbr-iron-east-04.cleardb.net/api/topics/${tid}/widgets`)
+        fetch(`https://cs4550-sp-park-eric.herokuapp.com/api/topics/${tid}/widgets`)
             .then(response => response.json())
             .then(actualWidgets => dispatch({
                 type: "FIND_WIDGETS_FOR_TOPIC",
                 widgets: actualWidgets
             })),
     findAllWidgets: () =>
-        fetch("http://us-cdbr-iron-east-04.cleardb.net/widgets")
+        fetch("https://cs4550-sp-park-eric.herokuapp.com/widgets")
             .then(response => response.json())
             .then(actualWidgets => dispatch({
                 type: "FIND_ALL_WIDGETS",
