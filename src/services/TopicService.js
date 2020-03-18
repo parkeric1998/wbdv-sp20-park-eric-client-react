@@ -1,7 +1,7 @@
 import {TOPICS_API_URL, TOPICS_TOPICS_API_URL} from "../common/constants";
 
 export const createTopic = (lessonId, topic) =>
-    fetch(`http://localhost:8080/api/lessons/${lessonId}/topics`, {
+    fetch(`https://cs4550-eric-park-hw6.herokuapp.com/api/lessons/${lessonId}/topics`, {
         method: "POST",
         body: JSON.stringify(topic),
         headers: {
@@ -10,7 +10,7 @@ export const createTopic = (lessonId, topic) =>
     }).then(response => response.json())
 
 export const findTopicsForLesson = (lessonId) =>
-    fetch(`http://localhost:8080/api/lessons/${lessonId}/topics`)
+    fetch(`https://cs4550-eric-park-hw6.herokuapp.com/api/lessons/${lessonId}/topics`)
         .then(response => response.json())
 
 export const updateTopic = async (topicId,topic) =>
